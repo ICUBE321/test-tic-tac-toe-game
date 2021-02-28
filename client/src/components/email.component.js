@@ -50,8 +50,11 @@ export default class Email extends Component {
   
         console.log('Message: ' + message);
         //console.log('Message from state: ' + this.state.message);
-
-        this.sendFeedback({user_name: this.state.username, user_email: this.state.email, message: message});
+        if(this.state.username.trim().length < 1 || this.state.username === null || this.state.email.trim().length < 1 || this.state.email === null) {
+            window.alert("Please fill in the required information to send!");
+        } else {
+            this.sendFeedback({user_name: this.state.username, user_email: this.state.email, message: message});
+        }
     }
 
     handleCancel() {
