@@ -31,11 +31,21 @@ app.use('/player', playerRouter);
 const path = require("path")
 
 //...other app.use middleware
-app.use(express.static(path.join(__dirname, "client/build")))
+app.use(express.static(path.join(__dirname, "client/build")));
 
-//right before your app.listen(), add this:
+//production mode
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
+
+    //right before your app.listen(), add this:
+    app.get("*", (req, res) => {
+            res.sendFile(path.join(__dirname = "/client/build/index.html"));
+    });
+}
+
+//build mode
 app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname+"/client/build/index.html"));
+    res.sendFile(path.join(__dirname+"/client/public/index.html"));
 });
 
 app.listen(port, () => {

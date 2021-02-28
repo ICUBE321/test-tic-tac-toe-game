@@ -24,7 +24,7 @@ export default class GamelogsList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/gamelog/')
+        axios.get('api/gamelog/')
             .then(response => {
                 this.setState({ gamelogs: response.data });
             })

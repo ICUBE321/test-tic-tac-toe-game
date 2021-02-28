@@ -20,7 +20,7 @@ export default class Settings extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/player/')
+        axios.get('api/player/')
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({
@@ -75,7 +75,7 @@ export default class Settings extends Component {
         } else {
             
             if(!this.state.players.includes(playerX.username)) {
-                axios.post('http://localhost:5000/player/add', playerX)
+                axios.post('api/player/add', playerX)
                     .then(res => console.log(res.data))
                     .catch(error => {
                         console.log("Error while adding player: "+error)
@@ -83,7 +83,7 @@ export default class Settings extends Component {
             }
     
             if(!this.state.players.includes(playerO.username)) {
-                axios.post('http://localhost:5000/player/add', playerO)
+                axios.post('api/player/add', playerO)
                     .then(res => console.log(res.data))
                     .catch(error => {
                         console.log("Error while adding player: "+error)

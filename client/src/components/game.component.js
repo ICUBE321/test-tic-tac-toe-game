@@ -126,7 +126,7 @@ import axios from 'axios';
 
       console.log(gamelog);
 
-      axios.post('http://localhost:5000/gamelog/add', gamelog)
+      axios.post('api/gamelog/add', gamelog)
         .then(res => console.log(res.data));
 
       if(window.confirm("Send game score to email address?")) {
