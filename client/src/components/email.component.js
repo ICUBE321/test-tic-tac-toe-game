@@ -63,13 +63,15 @@ export default class Email extends Component {
         .then(res => {
             console.log("Email successfully sent!", res.status, res.text);
             window.alert("Email successfully sent!");
+            this.handleCancel();
         })
         //handle errors
         .catch(error => {
             console.error("This occurred: ", error);
             window.alert("Email not sent!");
+            this.handleCancel();
         });
 
-        this.handleCancel();
+        //this.handleCancel();
     }
 }

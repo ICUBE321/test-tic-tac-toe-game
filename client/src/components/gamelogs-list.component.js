@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import TableScrollbar from 'react-table-scrollbar';
 
 const Gamelog = props => (
     <tr>
@@ -44,21 +45,23 @@ export default class GamelogsList extends Component {
         return (
             <div>
                 <h3>Game Logs</h3>
-                <table className="table">
-                    <thead className="thead-light">
-                        <tr>
-                            <th>Playtime in seconds</th>
-                            <th>Winner</th>
-                            <th>Loser</th>
-                            <th>X</th>
-                            <th>O</th>
-                            <th>Date played</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { this.gamelogList() }
-                    </tbody>
-                </table>
+                <TableScrollbar rows={9}>
+                    <table className="table">
+                        <thead className="thead-light">
+                            <tr>
+                                <th>Playtime in seconds</th>
+                                <th>Winner</th>
+                                <th>Loser</th>
+                                <th>X</th>
+                                <th>O</th>
+                                <th>Date played</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { this.gamelogList() }
+                        </tbody>
+                    </table>
+                </TableScrollbar>
             </div>
         )
     }

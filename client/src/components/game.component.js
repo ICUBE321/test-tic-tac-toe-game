@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import "./game.css";
 import axios from 'axios';
+import Image from "react-bootstrap/Image"
 
   function Square(props) {
 
@@ -61,6 +62,8 @@ import axios from 'axios';
         start: 0,
         playerX: '',
         playerO: '',
+        imageURL1: '',
+        imageURL2: ''
       }
 
       this.getFromSearch = this.getFromSearch.bind(this);
@@ -78,10 +81,14 @@ import axios from 'axios';
       const urlParams = new URLSearchParams(window.location.search);
       const playerX = urlParams.get('PlayerX');
       const playerO = urlParams.get('PlayerO');
+      const URL1 = urlParams.get('URL1');
+      const URL2 = urlParams.get('URL2');
 
       this.setState({
         playerX: playerX,
-        playerO: playerO
+        playerO: playerO,
+        imageURL1: URL1,
+        imageURL2: URL2
       })
 
       console.log('Player X username from url: ' + playerX);
@@ -211,6 +218,7 @@ import axios from 'axios';
           <br/>
           <div>
             <p>PLAYER X: {playerXName} VS PLAYER O: {playerOName} </p>
+            <p><Image src={this.state.imageURL1} thumbnail width="171"/> VS <Image src={this.state.imageURL2} thumbnail width="171"/></p>
           </div>
         </div>
       );

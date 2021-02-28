@@ -1,7 +1,11 @@
 import axios from "axios";
 import React, { Component } from "react";
+import Image from "react-bootstrap/Image"
 
 export default class Settings extends Component {
+
+    randomDogURL = 'https://secret-ocean-49799.herokuapp.com/http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true';
+
     constructor(props) {
         super(props);
 
@@ -35,7 +39,7 @@ export default class Settings extends Component {
     }
 
     getRandomImage(playerNumber) {
-        axios.get('https://secret-ocean-49799.herokuapp.com/http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true')
+        axios.get(this.randomDogURL)
             .then(response => {
                 console.log(response);
                 if(playerNumber === 1) {
@@ -92,7 +96,7 @@ export default class Settings extends Component {
 
             console.log("Player X: " + playerX.username);
             console.log("Player O: " + playerO.username);
-            window.location.href = "/game?PlayerX="+playerX.username+"&PlayerO="+playerO.username;
+            window.location.href = "/game?PlayerX="+playerX.username+"&PlayerO="+playerO.username+"&URL1="+this.state.imageUrl1+"&URL2="+this.state.imageUrl2;
         }
     }
 
@@ -121,7 +125,7 @@ export default class Settings extends Component {
                         </datalist>
 
                         <input type="button" value="Random Icon" onClick={() => this.getRandomImage(1)}/>
-                        <img src={this.state.imageUrl1} alt=""/><br/>
+                        <Image src={this.state.imageUrl1} thumbnail width="171"/>
                     </div>
                     <div className="form-group">
                         <label>Player O: </label>
@@ -142,7 +146,7 @@ export default class Settings extends Component {
                             }
                         </datalist>
                         <input type="button" value="Random Icon" onClick={() => this.getRandomImage(2)}/>
-                        <img src={this.state.imageUrl2} alt=""/><br/>
+                        <Image src={this.state.imageUrl2} thumbnail width="171"/>
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Start Game" className="btn btn-primary" />
