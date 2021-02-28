@@ -24,8 +24,8 @@ connection.once('open', () => {
 const gamelogRouter = require('./routes/gamelog');
 const playerRouter = require('./routes/player')
 
-app.use('/gamelog', gamelogRouter);
-app.use('/player', playerRouter);
+app.use('/api/gamelog', gamelogRouter);
+app.use('/api/player', playerRouter);
 
 //...other imports
 const path = require("path")
