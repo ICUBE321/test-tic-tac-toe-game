@@ -2,6 +2,7 @@
 //Emailjs used as notification service
 
 import React, { Component } from 'react';
+import emailjs from 'emailjs-com';
 
 export default class Email extends Component {
     constructor(props) {
