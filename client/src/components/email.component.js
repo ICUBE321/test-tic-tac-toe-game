@@ -2,7 +2,8 @@
 //Emailjs used as notification service
 
 import React, { Component } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs, { init } from 'emailjs-com';
+init("user_v9B5gRcVDJoDmGqGthBR6");
 
 export default class Email extends Component {
     constructor(props) {
@@ -58,10 +59,8 @@ export default class Email extends Component {
     }
 
     sendFeedback(variables) {
-        window.emailjs.send(
-            'contact_service', 'contact_form',
-            variables
-        ).then(res => {
+        emailjs.send('contact_service', 'contact_form', variables)
+        .then(res => {
             console.log("Email successfully sent!")
         })
         //handle errors
