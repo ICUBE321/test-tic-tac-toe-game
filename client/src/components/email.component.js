@@ -61,11 +61,15 @@ export default class Email extends Component {
     sendFeedback(variables) {
         emailjs.send('contact_service', 'contact_form', variables)
         .then(res => {
-            console.log("Email successfully sent!")
+            console.log("Email successfully sent!", res.status, res.text);
+            window.alert("Email successfully sent!");
         })
         //handle errors
-        .catch(error => console.error("This occurred: ", error));
+        .catch(error => {
+            console.error("This occurred: ", error);
+            window.alert("Email not sent!");
+        });
 
-        //this.handleCancel();
+        this.handleCancel();
     }
 }
