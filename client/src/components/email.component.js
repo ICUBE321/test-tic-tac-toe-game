@@ -65,6 +65,7 @@ export default class Email extends Component {
         })
         //handle errors
         .catch(error => console.error("This occurred: ", error));
-        this.handleCancel();
+
+        //this.handleCancel();
     }
 }
