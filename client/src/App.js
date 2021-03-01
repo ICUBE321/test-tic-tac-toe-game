@@ -8,6 +8,8 @@ import Settings from "./components/settings.component";
 import Game from "./components/game.component";
 import Email from "./components/email.component";
 
+//always show navbar on each component page
+//each component route path defined
 function App () {
         return (
             <Router>

@@ -3,17 +3,20 @@
 
 import React, { Component } from 'react';
 import emailjs, { init } from 'emailjs-com';
+//initialize using my emailjs user ID
 init("user_v9B5gRcVDJoDmGqGthBR6");
 
 export default class Email extends Component {
     constructor(props) {
         super(props);
 
+        //define state with username and email
         this.state = {
             username: "",
             email: Email,
         };
 
+        //bind the functions to use correct this context
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +37,9 @@ export default class Email extends Component {
         )
     }
 
+    //handle change in inputs
     handleUsernameChange(event) {
+        //set the username in the state as the input value
         this.setState({username: event.target.value})
     }
 
@@ -42,25 +47,31 @@ export default class Email extends Component {
         this.setState({email: event.target.value})
     }
 
+    //handle submitting 
     handleSubmit(event) {
         event.preventDefault();
 
+        //get game log details from url
         const urlParams = new URLSearchParams(window.location.search);
+        //compose email message using the details
         const message = urlParams.get('PlayerX') + " was X. " + urlParams.get('PlayerO') + " was O. And " + urlParams.get('Winner') + " won the game.";
   
         console.log('Message: ' + message);
         //console.log('Message from state: ' + this.state.message);
-        if(this.state.username.trim().length < 1 || this.state.username === null || this.state.email.length < 1 || this.state.email === null) {
+        //validate submit
+        if(this.state.username.trim().length < 1 || this.state.username === null || this.state.email == null || (Object.keys(value).length === 0 && this.state.email.constructor === Object)) {
             window.alert("Please fill in the required information to send!");
         } else {
             this.sendFeedback({user_name: this.state.username, user_email: this.state.email, message: message});
         }
     }
 
+    //redirect user to homepage 
     handleCancel() {
         window.location = '/';
     }
 
+    //connect and send email using Emailjs
     sendFeedback(variables) {
         emailjs.send('contact_service', 'contact_form', variables)
         .then(res => {

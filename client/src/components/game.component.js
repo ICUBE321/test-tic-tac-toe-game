@@ -4,6 +4,7 @@ import "./game.css";
 import axios from 'axios';
 import Image from "react-bootstrap/Image"
 
+//square component function to display each square on the board
   function Square(props) {
 
     return (
@@ -14,8 +15,10 @@ import Image from "react-bootstrap/Image"
     );
   }
   
+  //board component to setup and display the game board
   class Board extends React.Component {
 
+    //render each square
     renderSquare(i) {
       return <Square value={this.props.squares[i]}
                       onClick={() => this.props.onClick(i)} />;
@@ -44,10 +47,12 @@ import Image from "react-bootstrap/Image"
     }
   }
   
+  //game component that shows the entire game
   export default class Game extends React.Component {
     constructor(props) {
       super(props);
 
+      //holds each state variable
       this.state = {
         history: [{
           squares: Array(9).fill(null)

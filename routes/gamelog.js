@@ -1,6 +1,10 @@
+//require Express Router
 const router = require('express').Router();
+
+//use gamelog model
 let Gamelog = require('../models/gamelog.model');
 
+//processing of routes
 router.route('/').get((req, res) => {
     Gamelog.find()
         .then(gamelogs => res.json(gamelogs))
@@ -29,5 +33,6 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//export router
 module.exports = router;
 

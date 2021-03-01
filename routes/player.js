@@ -1,6 +1,11 @@
+//require Express Router
+
 const router = require('express').Router();
+
+//use Player model for database document accessing
 let Player = require('../models/player.model');
 
+//processing of routes
 router.route('/').get((req, res) => {
     Player.find()
         .then(players => res.json(players))
@@ -17,4 +22,5 @@ router.route('/add').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//export Player router
 module.exports = router;
