@@ -1,0 +1,72 @@
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.game-board {
+  width: 40%;
+  /* display: grid;
+  grid-template-columns: [];
+  grid-template-rows: ; */
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.square {
+  background: #3a3a3a;
+  border: 1px solid #545454;
+  float: left;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  height: 6rem;
+  width: 6rem;
+  color: #14bdac;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  /* background: #ddd; */
+}
+
+.game-info {
+  /* margin-left: 20px; */
+}
+
+.status {
+  /* margin-bottom: 10px; */
+}
+
+.player-tags {
+  display: flex;
+  color: #14bdac;
+}
+
+.player-tags > h1 {
+  align-self: center;
+  margin: 0 1rem;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player > label {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.player > .image {
+  width: 10rem;
+}

@@ -1,0 +1,65 @@
+.gamelogs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  padding: 2rem;
+  color: #14bdac;
+  font-weight: bold;
+}
+
+.table {
+  color: #545454;
+  width: 90%;
+  height: 70%;
+}
+
+.thead {
+  background-color: #14bdac;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.thead th {
+  padding: 1rem;
+}
+
+.tbody {
+  background-color: #14bdac;
+  color: #545454;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trow {
+  background-color: #0f8d80;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.1rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.trow > td {
+    width: 10%;
+    text-align: center;
+}
+
+.btn {
+    background-color: #545454;
+    border: none;
+    color: #0f8d80;
+}
+
+.btn:hover {
+    background-color: #14bdac;
+}
