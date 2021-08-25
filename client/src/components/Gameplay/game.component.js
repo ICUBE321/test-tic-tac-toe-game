@@ -160,6 +160,8 @@ const Game = (props) => {
   const handleClick = (i) => {
     if (winner != null) {
       return;
+    } else if (history[stepNumber].squares[i] != null) {
+      return;
     }
     const current = history[history.length - 1];
     const squares = current.squares.slice();

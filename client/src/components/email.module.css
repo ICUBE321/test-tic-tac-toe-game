@@ -11,7 +11,7 @@
   align-items: center;
   padding: 1rem;
   background-color: #3a3a3a;
-  width: 50%;
+  width: 90%;
 }
 
 .form-group > label {
@@ -23,14 +23,14 @@
 .form-group > input {
   border-radius: 2px;
   border: none;
-  width: 55%;
+  width: 70%;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 50%;
 }
 
 .btn {
@@ -39,6 +39,7 @@
   border-radius: 3px;
   padding: 1rem;
   font-weight: bold;
+  margin: 0 1rem;
 }
 
 .btn.primary {
@@ -60,4 +61,18 @@
 .btn:hover {
   border: 4px solid #3a3a3a;
   color: #3a3a3a;
+}
+
+@media (min-width: 40rem) {
+  .form-group {
+    width: 50%;
+  }
+
+  .form-group > input {
+    width: 55%;
+  }
+
+  .buttons {
+    width: 20%;
+  }
 }

@@ -1,14 +1,12 @@
 .game {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .game-board {
-  width: 40%;
-  /* display: grid;
-  grid-template-columns: [];
-  grid-template-rows: ; */
+  padding-bottom: 3rem;
 }
 
 .board-row:after {
@@ -21,12 +19,12 @@
   background: #3a3a3a;
   border: 1px solid #545454;
   float: left;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0;
   text-align: center;
-  height: 6rem;
-  width: 6rem;
+  height: 3rem;
+  width: 3rem;
   color: #14bdac;
 }
 
@@ -34,16 +32,8 @@
   outline: none;
 }
 
-.kbd-navigation .square:focus {
-  /* background: #ddd; */
-}
-
-.game-info {
-  /* margin-left: 20px; */
-}
-
-.status {
-  /* margin-bottom: 10px; */
+.square:hover {
+  background-color: #7c7c7c;
 }
 
 .player-tags {
@@ -53,7 +43,8 @@
 
 .player-tags > h1 {
   align-self: center;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
 }
 
 .player {
@@ -64,9 +55,34 @@
 
 .player > label {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .player > .image {
   width: 10rem;
+}
+
+@media (min-width: 40rem) {
+  .game {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .game-board {
+    width: 40%;
+  }
+
+  .square {
+    font-size: 2rem;
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .player-tags > h1 {
+    margin: 0 1rem;
+  }
+
+  .player > label {
+    font-size: 1.2rem;
+  }
 }
